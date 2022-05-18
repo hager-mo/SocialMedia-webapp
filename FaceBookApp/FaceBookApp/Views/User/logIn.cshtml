@@ -1,0 +1,31 @@
+﻿
+@{
+    ViewBag.Title = "logIn";
+}
+
+@model FaceBookApp.Models.User
+
+<h2>Log in</h2>
+
+
+@using (Html.BeginForm("authorizeAccount", "User"))
+{
+
+    <div class="form-group">
+        @Html.LabelFor(l => l.userEmail)
+        @Html.TextBoxFor(l => l.userEmail, new { @class = "form-control", @type = "email", required = "required" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(l => l.userPassword)
+        @Html.TextBoxFor(l => l.userPassword, new { @class = "form-control", required = "required"})
+    </div>
+
+
+    <button type="submit" class="btn btn-success">Login</button>
+    <button type="reset" class="btn btn-default">Reset</button>
+
+}
+<br />
+@Html.ActionLink("Don't have an account? Create account.", "createAccount", "User")
+
